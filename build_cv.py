@@ -39,7 +39,7 @@ html, body { margin: 0; padding: 0; }
 body { font: 8.45pt/1.31 Roboto, "Segoe UI", Arial, sans-serif; color: #3F4650; background: #fff;
        -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 a { color: #1e3a6e; text-decoration: none; }
-.wrapper { display: grid; grid-template-columns: 1fr 63mm; width: 210mm; min-height: 297mm; margin: 0 auto; }
+.wrapper { display: grid; grid-template-columns: 1fr 60mm; width: 210mm; min-height: 297mm; margin: 0 auto; }
 /* ---- sidebar ---- */
 .sidebar { background: #1e3a6e; color: #fff; order: 2; }
 .sidebar a { color: #fff; }
@@ -66,15 +66,15 @@ a { color: #1e3a6e; text-decoration: none; }
 .skill span { color: rgba(255,255,255,.8); }
 .interests { font-size: 8.3pt; color: rgba(255,255,255,.85); margin: 0; }
 /* ---- main ---- */
-.main { order: 1; background: #fff; padding: 7mm 7.5mm 5mm 9mm; }
-.section { margin-bottom: 3.1mm; }
+.main { order: 1; background: #fff; padding: 6mm 7.5mm 3mm 9mm; }
+.section { margin-bottom: 2.8mm; }
 .section-title { display: flex; align-items: center; gap: 2.4mm; text-transform: uppercase; font-size: 9.8pt;
                  font-weight: 500; letter-spacing: .04em; color: #3f6fb5; margin: 0 0 1.8mm; }
 .section-title .ic { display: inline-flex; align-items: center; justify-content: center; width: 6mm; height: 6mm;
                      border-radius: 50%; background: #1e3a6e; color: #fff; }
 .hilo { font-style: italic; color: #1e3a6e; margin: 0 0 1.8mm; font-size: 9.2pt; }
 p { margin: 0 0 1.6mm; }
-.item { margin-bottom: 1.7mm; }
+.item { margin-bottom: 1.5mm; }
 .upper { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
 .job { font-size: 9.5pt; font-weight: 500; color: #2b323d; margin: 0; }
 .job a { color: #1e3a6e; }
@@ -179,9 +179,7 @@ ES = {'lang': 'es',
             'de IA que corren sobre datos reales, con cifras medidas, limitaciones escritas y código '
             'público. Trabajo con una idea simple: cualquier aplicación con IA tiene cinco pasos y solo uno '
             'invoca un modelo; los otros cuatro son código. Cuando están bien hechos, lo que queda en medio '
-            'cabe en una llamada, y el resultado es más barato, más potente y auditable. He colaborado con '
-            'empresas de automoción y alimentación donde la normativa manda y un error silencioso cuesta '
-            'caro.',
+            'cabe en una llamada, y el resultado es más barato, más potente y auditable.',
  't_projects': 'Proyectos públicos',
  'projects': [('CTSM',
                'epifaneia/ctsm',
@@ -206,13 +204,13 @@ ES = {'lang': 'es',
                'La parte reutilizable de cada pipeline: una herramienta por paso de diseño, guardarraíles '
                'genéricos y tres cables de integración con los sistemas de la empresa (identidad, registro '
                'de eventos, firma), con pruebas e integración documentada para Entra ID, SIEM y PKI.'),
-              ('viabilidad-ia',
-               'epifaneia/viabilidad-ia',
+              ('feasibility-study',
+               'epifaneia/feasibility-study',
                '2026',
-               'De un formulario de reunión a un estudio de viabilidad de IA en PDF: investigación con '
-               'fuentes citadas, extracción estructurada y un ranking que calcula el código (√(ROI × '
-               'viabilidad)), no el modelo. Formulario, servidor FastAPI, panel del consultor, avisos de QA '
-               'y revisión humana antes de enviar.'),
+               'De un formulario de reunión a un estudio de viabilidad de IA en PDF: una investigación '
+               'autónoma por cientos de páginas, convertida por código en un informe con nuestra narrativa y '
+               'nuestro orden, con fuentes citadas. Formulario, servidor FastAPI, panel del consultor y '
+               'revisión humana antes de enviar.'),
               ('Mildew Detection in Cherry Leaves',
                'cefeidas/Mildew-Detection-in-Cherry-Leaves',
                '2024',
@@ -227,21 +225,24 @@ ES = {'lang': 'es',
                  'Diseño e implantación de pipelines de IA con cadena de custodia para industria y procesos '
                  'regulados: los tres proyectos de arriba, una app móvil de conversación por voz con modelos '
                  'por etapa, y pruebas de concepto para empresas de automoción y alimentación.'),
+                ('Gestor bilingüe',
+                 '2025 – actualidad',
+                 'Foundever · campaña de Airbnb · Sevilla',
+                 'Atención al cliente avanzada en inglés, en paralelo a Epifaneia.'),
                 ('Programador de automatizaciones y teleoperador',
                  'marzo – diciembre 2024',
                  'Konecta · Sevilla',
                  'Automatización de los informes del equipo con Python (Pandas, openpyxl) sobre '
-                 'exportaciones de Metabase, en iteraciones revisadas por el equipo de análisis de datos; '
-                 'junto a la actividad comercial.'),
+                 'exportaciones de Metabase, en iteraciones revisadas por el equipo de análisis de datos.'),
                 ('Análisis de riesgo, calidad y formación',
                  '2017 – 2023',
                  'TaskUs, Prepaid Financial Services, Media Interactiva, Field Management · Irlanda y España',
                  'Análisis de riesgo financiero, auditoría de calidad y formación de agentes en TaskUs, con '
-                 'participación en un programa de entrenamiento de modelos de IA; QA de software en Media '
-                 'Interactiva. Seis años trabajando en inglés.')],
+                 'un programa de entrenamiento de modelos de IA; QA de software en Media Interactiva. Seis '
+                 'años trabajando en inglés.')],
  't_education': 'Formación',
  'education': [('Diploma in Full Stack Software Development',
-                '2022 – 2024',
+                '2023 – 2024',
                 'Code Institute · crédito universitario (University of the West of Scotland)',
                 'Único bootcamp online con créditos universitarios en Reino Unido y Europa. Cinco proyectos '
                 'de portfolio en <a href="https://github.com/cefeidas">github.com/cefeidas</a>: web '
@@ -316,12 +317,12 @@ EN = {'lang': 'en',
                'The reusable part of every pipeline: one tool per design step, generic guardrails and three '
                'integration wires to the company’s systems (identity, event ledger, sign-off), with tests '
                'and a documented integration for Entra ID, SIEM and PKI.'),
-              ('viabilidad-ia',
-               'epifaneia/viabilidad-ia',
+              ('feasibility-study',
+               'epifaneia/feasibility-study',
                '2026',
-               'From a meeting form to an AI feasibility study in PDF: research with cited sources, '
-               'structured extraction and a ranking computed by code (√(ROI × feasibility)), not by the '
-               'model. Form, FastAPI server, consultant panel, QA warnings and human review before sending.'),
+               'From a meeting form to an AI feasibility study in PDF: an autonomous research run across '
+               'hundreds of pages, turned by code into a report with our narrative and our order, with cited '
+               'sources. Form, FastAPI server, consultant panel and human review before sending.'),
               ('Mildew Detection in Cherry Leaves',
                'cefeidas/Mildew-Detection-in-Cherry-Leaves',
                '2024',
@@ -336,11 +337,15 @@ EN = {'lang': 'en',
                  'Design and delivery of AI pipelines with a chain of custody for industry and regulated '
                  'processes: the three projects above, a mobile voice-conversation app with a model per '
                  'stage, and proofs of concept for automotive and food companies.'),
+                ('Bilingual account specialist',
+                 '2025 – present',
+                 'Foundever · Airbnb programme · Seville',
+                 'Advanced customer support in English, in parallel with Epifaneia.'),
                 ('Automation programmer and sales agent',
                  'March – December 2024',
                  'Konecta · Seville',
                  'Automated the team’s reporting with Python (Pandas, openpyxl) over Metabase exports, in '
-                 'iterations reviewed by the data analysis team; alongside sales activity.'),
+                 'iterations reviewed by the data analysis team.'),
                 ('Risk analysis, quality and training',
                  '2017 – 2023',
                  'TaskUs, Prepaid Financial Services, Media Interactiva, Field Management · Ireland and '
@@ -350,7 +355,7 @@ EN = {'lang': 'en',
                  'English.')],
  't_education': 'Education',
  'education': [('Diploma in Full Stack Software Development',
-                '2022 – 2024',
+                '2023 – 2024',
                 'Code Institute · university credit-rated (University of the West of Scotland)',
                 'The only university credit-rated online coding bootcamp in the UK and Europe. Five '
                 'portfolio projects at <a href="https://github.com/cefeidas">github.com/cefeidas</a>: an '
