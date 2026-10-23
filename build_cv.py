@@ -188,15 +188,15 @@ ES = {'lang': 'es',
                'manuales del proveedor y devuelve el mismo fichero con la evidencia y su página exacta. El '
                'modelo solo puede citar fragmentos de una lista cerrada; el código verifica cada cita contra '
                'la fuente y deriva la página del offset. <span class="n">9/9 contra ground truth · 8/9 con '
-               'un modelo local de 14B en una GPU de 6 GB y cero falsos «cumple» · diff de ida y vuelta '
+               'un modelo local de 14B y cero falsos «cumple» · diff de ida y vuelta '
                'probado contra 5 sabotajes.</span>'),
               ('reqif-extractor',
                'epifaneia/reqif-extractor',
                '2026',
                'De un PDF de especificación a un ReqIF que Polarion importa a la primera: identificadores '
                'verbatim, jerarquía del documento, orden de página. Política determinista de identificadores '
-               'y reconciliación de tipo contra la fuente. <span class="n">167 de 170 identificadores '
-               'inventados por el modelo, detectados · 1/20 del coste de visión enrutando solo tablas y '
+               'y reconciliación de tipo contra la fuente. <span class="n">sin la política, el modelo inventaba '
+               '167 de 170 identificadores · 1/20 del coste de visión enrutando solo tablas y '
                'figuras · 12/12 documentos reales validados estructuralmente.</span>'),
               ('toolkit',
                'epifaneia/toolkit',
@@ -301,15 +301,15 @@ EN = {'lang': 'en',
                'supplier’s manuals and returns the same file with the evidence and its exact page. The model '
                'may only cite fragments from a closed list; code verifies every quote against the source and '
                'derives the page from the offset. <span class="n">9/9 against ground truth · 8/9 with a '
-               'local 14B model on a 6 GB GPU and zero false "compliant" · round-trip diff tested against 5 '
+               'local 14B model and zero false "compliant" · round-trip diff tested against 5 '
                'sabotages.</span>'),
               ('reqif-extractor',
                'epifaneia/reqif-extractor',
                '2026',
                'From a specification PDF to a ReqIF that Polarion imports on the first attempt: verbatim '
                'identifiers, document hierarchy, page order. Deterministic identifier policy and type '
-               'reconciliation against the source. <span class="n">167 of 170 model-invented identifiers '
-               'caught · 1/20 of the vision cost by routing only tables and figures · 12/12 real documents '
+               'reconciliation against the source. <span class="n">without the policy, the model invented '
+               '167 of 170 identifiers · 1/20 of the vision cost by routing only tables and figures · 12/12 real documents '
                'structurally validated.</span>'),
               ('toolkit',
                'epifaneia/toolkit',
