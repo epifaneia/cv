@@ -116,8 +116,11 @@ def sec(title, icon, body):
 def main(d):
     gh = ico(I["github"], "2.9mm")
     projects = "".join(
-        f'<div class="item"><div class="upper"><h3 class="job"><a href="https://github.com/{repo}">{name}</a></h3>'
-        f'<span class="time"><a href="https://github.com/{repo}">{gh} {repo}</a> · {year}</span></div><div class="details">{desc}</div></div>'
+        (f'<div class="item"><div class="upper"><h3 class="job"><a href="https://github.com/{repo}">{name}</a></h3>'
+         f'<span class="time"><a href="https://github.com/{repo}">{gh} {repo}</a> · {year}</span></div><div class="details">{desc}</div></div>'
+         if repo else
+         f'<div class="item"><div class="upper"><h3 class="job">{name}</h3>'
+         f'<span class="time">{year}</span></div><div class="details">{desc}</div></div>')
         for name, repo, year, desc in d["projects"])
     exp = "".join(
         f'<div class="item"><div class="upper"><h3 class="job">{role}</h3><span class="time">{when}</span></div>'
@@ -246,10 +249,10 @@ ES = {'lang': 'es',
  'education': [('Diploma in Full Stack Software Development',
                 'enero 2023 – abril 2024',
                 'Code Institute · crédito universitario (University of the West of Scotland)',
-                'Cinco proyectos de portfolio en <a '
-                'href="https://github.com/cefeidas">github.com/cefeidas</a>: web accesible (HTML, CSS), '
-                'juego en JavaScript, juego en Python sobre la API de Google Sheets, biblioteca en Django '
-                'con autenticación y reseñas, y una red convolucional que clasifica imágenes (Mildew).'),
+                'Cinco proyectos de portfolio: web accesible (HTML, CSS), juego en JavaScript, juego en '
+                'Python sobre la API de Google Sheets, biblioteca en Django con autenticación y reseñas '
+                '(reescrita en 2026: <a href="https://github.com/epifaneia/neuralib">epifaneia/neuralib</a>) '
+                'y una red convolucional que clasifica imágenes (Mildew).'),
                ('Estudios de Filosofía y de Física (varios cursos)', 'Universidad de Sevilla', '', '')]}
 
 EN = {'lang': 'en',
@@ -352,10 +355,10 @@ EN = {'lang': 'en',
  'education': [('Diploma in Full Stack Software Development',
                 'January 2023 – April 2024',
                 'Code Institute · university credit-rated (University of the West of Scotland)',
-                'Five portfolio projects at <a href="https://github.com/cefeidas">github.com/cefeidas</a>: '
-                'an accessible website (HTML, CSS), a JavaScript game, a Python game on the Google Sheets '
-                'API, a Django library with authentication and reviews, and a convolutional network that '
-                'classifies images (Mildew).'),
+                'Five portfolio projects: an accessible website (HTML, CSS), a JavaScript game, a Python '
+                'game on the Google Sheets API, a Django library with authentication and reviews (rebuilt in '
+                '2026: <a href="https://github.com/epifaneia/neuralib">epifaneia/neuralib</a>) and a '
+                'convolutional network that classifies images (Mildew).'),
                ('Studies in Philosophy and in Physics (several years)', 'University of Seville', '', '')]}
 
 def to_pdf(html_path: Path, pdf_path: Path):
