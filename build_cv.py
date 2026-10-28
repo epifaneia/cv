@@ -41,7 +41,7 @@ body { font: 8.45pt/1.31 Roboto, "Segoe UI", Arial, sans-serif; color: #3F4650; 
 a { color: #1e3a6e; text-decoration: none; }
 .wrapper { display: grid; grid-template-columns: 1fr 60mm; width: 210mm; min-height: 297mm; margin: 0 auto; }
 /* ---- sidebar ---- */
-.sidebar { background: #1e3a6e; color: #fff; order: 2; }
+.sidebar { background: #1e3a6e; color: #fff; grid-column: 2; grid-row: 1; }
 .sidebar a { color: #fff; }
 .profile { background: rgba(0,0,0,.22); text-align: center; padding: 7mm 5mm 5mm; }
 .avatar { width: 30mm; height: 30mm; border-radius: 50%; object-fit: cover; border: 1.2px solid rgba(255,255,255,.85);
@@ -66,7 +66,7 @@ a { color: #1e3a6e; text-decoration: none; }
 .skill span { color: rgba(255,255,255,.8); }
 .interests { font-size: 8.3pt; color: rgba(255,255,255,.85); margin: 0; }
 /* ---- main ---- */
-.main { order: 1; background: #fff; padding: 6mm 7.5mm 3mm 9mm; }
+.main { grid-column: 1; grid-row: 1; background: #fff; padding: 6mm 7.5mm 3mm 9mm; }
 .section { margin-bottom: 2.8mm; }
 .section-title { display: flex; align-items: center; gap: 2.4mm; text-transform: uppercase; font-size: 9.8pt;
                  font-weight: 500; letter-spacing: .04em; color: #3f6fb5; margin: 0 0 1.8mm; }
@@ -139,7 +139,9 @@ def main(d):
 def page(d):
     return f"""<!doctype html><html lang="{d['lang']}"><head><meta charset="utf-8"><title>CV Daniel Martín · {d['tagline']}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1"><style>{CSS}</style></head>
-<body><div class="wrapper">{main(d)}{sidebar(d)}</div></body></html>"""
+<body><div class="wrapper">{sidebar(d)}{main(d)}</div></body></html>"""
+# La barra lateral va primero en el HTML (y se coloca a la derecha por la rejilla):
+# así el texto del PDF empieza por el nombre y el contacto, que es lo que lee un ATS.
 
 # ---------- contenido (variante AI Engineer) ----------
 ES = {'lang': 'es',
@@ -175,11 +177,13 @@ ES = {'lang': 'es',
  'interests': 'Patinaje · Filosofía · Juegos de rol',
  't_profile': 'Perfil profesional',
  'hilo': 'La IA tiene riesgos. El código los acota. La norma responde de lo que queda.',
- 'summary': 'Programador. Ocho años de estudio por mi cuenta y siete meses construyendo sin parar: pipelines '
-            'de IA que corren sobre datos reales, con cifras medidas, limitaciones escritas y código '
-            'público. Trabajo con una idea simple: cualquier aplicación con IA tiene cinco pasos y solo uno '
-            'invoca un modelo; los otros cuatro son código. Cuando están bien hechos, lo que queda en medio '
-            'cabe en una llamada, y el resultado es más barato, más potente y auditable.',
+ 'summary': 'Programador desde 2023: Code Institute, Python en empresa en 2024 y, desde marzo de 2026, '
+            'pipelines de IA que corren sobre datos reales, con cifras medidas, limitaciones escritas y '
+            'código público. Trabajo con una idea simple: cualquier aplicación con IA tiene cinco pasos y '
+            'solo uno invoca un modelo; los otros cuatro son código. Cuando están bien hechos, lo que queda '
+            'en medio cabe en una llamada, y el resultado es más barato, más potente y auditable. He '
+            'trabajado con empresas de automoción y alimentación, donde manda la regulación y un error '
+            'silencioso sale caro.',
  't_projects': 'Proyectos públicos',
  'projects': [('CTSM',
                'epifaneia/ctsm',
@@ -187,16 +191,16 @@ ES = {'lang': 'es',
                'Audita los requisitos de una especificación de cliente (ReqIF de Polarion) contra los '
                'manuales del proveedor y devuelve el mismo fichero con la evidencia y su página exacta. El '
                'modelo solo puede citar fragmentos de una lista cerrada; el código verifica cada cita contra '
-               'la fuente y deriva la página del offset. <span class="n">9/9 contra ground truth · 8/9 con '
-               'un modelo local de 14B y cero falsos «cumple» · diff de ida y vuelta '
-               'probado contra 5 sabotajes.</span>'),
+               'la fuente y deriva la página del offset. <span class="n">9/9 contra ground truth con un '
+               'modelo local de 14B · cero falsos «cumple» · diff de ida y vuelta probado contra 5 '
+               'sabotajes.</span>'),
               ('reqif-extractor',
                'epifaneia/reqif-extractor',
                '2026',
                'De un PDF de especificación a un ReqIF que Polarion importa a la primera: identificadores '
                'verbatim, jerarquía del documento, orden de página. Política determinista de identificadores '
-               'y reconciliación de tipo contra la fuente. <span class="n">sin la política, el modelo inventaba '
-               '167 de 170 identificadores · 1/20 del coste de visión enrutando solo tablas y '
+               'y reconciliación de tipo contra la fuente. <span class="n">Sin la política, el modelo '
+               'inventaba 167 de 170 identificadores · 1/20 del coste de visión enrutando solo tablas y '
                'figuras · 12/12 documentos reales validados estructuralmente.</span>'),
               ('toolkit',
                'epifaneia/toolkit',
@@ -210,21 +214,19 @@ ES = {'lang': 'es',
                'De un formulario de reunión a un estudio de viabilidad de IA en PDF: una investigación '
                'autónoma por cientos de páginas, convertida por código en un informe con nuestra narrativa y '
                'nuestro orden, con fuentes citadas. Formulario, servidor FastAPI, panel del consultor y '
-               'revisión humana antes de enviar.'),
-              ('Mildew Detection in Cherry Leaves',
-               'cefeidas/Mildew-Detection-in-Cherry-Leaves',
-               '2024',
-               'Clasificador de imágenes que distingue hojas de cerezo sanas de las afectadas por oídio: red '
-               'convolucional en TensorFlow/Keras entrenada sobre <span class="n">5.972 imágenes con clases '
-               'balanceadas</span>, partición 70/10/20 y <span class="n">99,8 % de acierto en test</span>. '
-               'Panel en Streamlit desplegado en Heroku.')],
+               'revisión humana antes de enviar.')],
  't_experience': 'Experiencia',
  'experience': [('Diseñador de soluciones de IA',
                  'marzo 2026 – actualidad',
                  'Epifaneia · Sevilla, remoto',
                  'Diseño e implantación de pipelines de IA con cadena de custodia para industria y procesos '
-                 'regulados: los tres proyectos de arriba, una app móvil de conversación por voz con modelos '
-                 'por etapa, y pruebas de concepto para empresas de automoción y alimentación.'),
+                 'regulados: los proyectos de arriba, una app móvil de conversación por voz con modelos por '
+                 'etapa y pruebas de concepto para el sector de la alimentación.'),
+                ('Encargos de conversión a ReqIF',
+                 'junio – septiembre 2026',
+                 'Ingeniero senior · proveedor de automoción Tier 1 · remoto',
+                 'Lotes recurrentes de especificaciones de cliente a ReqIF importable en Polarion, con '
+                 'reqif-extractor; cada entrega, revisada por él.'),
                 ('Gestor bilingüe',
                  '2024 – actualidad',
                  'Foundever · campaña de Airbnb · Sevilla',
@@ -242,17 +244,13 @@ ES = {'lang': 'es',
                  'años trabajando en inglés.')],
  't_education': 'Formación',
  'education': [('Diploma in Full Stack Software Development',
-                '2023 – 2024',
+                'enero 2023 – abril 2024',
                 'Code Institute · crédito universitario (University of the West of Scotland)',
-                'Único bootcamp online con créditos universitarios en Reino Unido y Europa. Cinco proyectos '
-                'de portfolio en <a href="https://github.com/cefeidas">github.com/cefeidas</a>: web '
-                'accesible (HTML, CSS), juego en JavaScript, juego en Python sobre la API de Google Sheets, '
-                'biblioteca en Django con autenticación y reseñas, y la red convolucional de arriba.'),
-               ('Formación autodidacta en IA, arquitectura de software y regulación',
-                '2018 – actualidad',
-                '',
-                ''),
-               ('Estudios universitarios de Filosofía y de Física', 'Universidad de Sevilla', '', '')]}
+                'Cinco proyectos de portfolio en <a '
+                'href="https://github.com/cefeidas">github.com/cefeidas</a>: web accesible (HTML, CSS), '
+                'juego en JavaScript, juego en Python sobre la API de Google Sheets, biblioteca en Django '
+                'con autenticación y reseñas, y una red convolucional que clasifica imágenes (Mildew).'),
+               ('Estudios de Filosofía y de Física (varios cursos)', 'Universidad de Sevilla', '', '')]}
 
 EN = {'lang': 'en',
  'tagline': 'AI Engineer',
@@ -287,7 +285,7 @@ EN = {'lang': 'en',
  'interests': 'Skating · Philosophy · Role-playing',
  't_profile': 'Profile',
  'hilo': 'AI carries risk. Code bounds it. The standard answers for what remains.',
- 'summary': 'Programmer. Eight years of self-directed study and seven months of non-stop building: AI '
+ 'summary': 'Programmer since 2023: Code Institute, Python at work in 2024 and, since March 2026, AI '
             'pipelines that run on real data, with measured numbers, written limitations and public code. I '
             'work from one simple idea: every AI application has five steps and only one invokes a model; '
             'the other four are code. When those are done properly, what is left in the middle fits in one '
@@ -300,17 +298,16 @@ EN = {'lang': 'en',
                'Audits the requirements of a customer specification (a Polarion ReqIF) against the '
                'supplier’s manuals and returns the same file with the evidence and its exact page. The model '
                'may only cite fragments from a closed list; code verifies every quote against the source and '
-               'derives the page from the offset. <span class="n">9/9 against ground truth · 8/9 with a '
-               'local 14B model and zero false "compliant" · round-trip diff tested against 5 '
-               'sabotages.</span>'),
+               'derives the page from the offset. <span class="n">9/9 against ground truth with a local 14B '
+               'model · zero false "compliant" · round-trip diff tested against 5 sabotages.</span>'),
               ('reqif-extractor',
                'epifaneia/reqif-extractor',
                '2026',
                'From a specification PDF to a ReqIF that Polarion imports on the first attempt: verbatim '
                'identifiers, document hierarchy, page order. Deterministic identifier policy and type '
-               'reconciliation against the source. <span class="n">without the policy, the model invented '
-               '167 of 170 identifiers · 1/20 of the vision cost by routing only tables and figures · 12/12 real documents '
-               'structurally validated.</span>'),
+               'reconciliation against the source. <span class="n">Without the policy, the model invented '
+               '167 of 170 identifiers · 1/20 of the vision cost by routing only tables and figures · 12/12 '
+               'real documents structurally validated.</span>'),
               ('toolkit',
                'epifaneia/toolkit',
                '2026',
@@ -322,21 +319,19 @@ EN = {'lang': 'en',
                '2026',
                'From a meeting form to an AI feasibility study in PDF: an autonomous research run across '
                'hundreds of pages, turned by code into a report with our narrative and our order, with cited '
-               'sources. Form, FastAPI server, consultant panel and human review before sending.'),
-              ('Mildew Detection in Cherry Leaves',
-               'cefeidas/Mildew-Detection-in-Cherry-Leaves',
-               '2024',
-               'Image classifier that tells healthy cherry leaves from those with powdery mildew: a '
-               'convolutional network in TensorFlow/Keras trained on <span class="n">5,972 class-balanced '
-               'images</span>, 70/10/20 split, <span class="n">99.8% accuracy on the test set</span>. '
-               'Streamlit dashboard deployed on Heroku.')],
+               'sources. Form, FastAPI server, consultant panel and human review before sending.')],
  't_experience': 'Experience',
  'experience': [('AI Solutions Designer',
                  'March 2026 – present',
                  'Epifaneia · Seville, remote',
                  'Design and delivery of AI pipelines with a chain of custody for industry and regulated '
-                 'processes: the three projects above, a mobile voice-conversation app with a model per '
-                 'stage, and proofs of concept for automotive and food companies.'),
+                 'processes: the projects above, a mobile voice-conversation app with a model per stage and '
+                 'proofs of concept for the food industry.'),
+                ('Recurring ReqIF conversion engagements',
+                 'June – September 2026',
+                 'Senior engineer at a Tier 1 automotive supplier · remote',
+                 'Batches of customer specifications converted into Polarion-ready ReqIF with '
+                 'reqif-extractor; every delivery reviewed by him.'),
                 ('Bilingual account specialist',
                  '2024 – present',
                  'Foundever · Airbnb programme · Seville',
@@ -355,17 +350,13 @@ EN = {'lang': 'en',
                  'English.')],
  't_education': 'Education',
  'education': [('Diploma in Full Stack Software Development',
-                '2023 – 2024',
+                'January 2023 – April 2024',
                 'Code Institute · university credit-rated (University of the West of Scotland)',
-                'The only university credit-rated online coding bootcamp in the UK and Europe. Five '
-                'portfolio projects at <a href="https://github.com/cefeidas">github.com/cefeidas</a>: an '
-                'accessible website (HTML, CSS), a JavaScript game, a Python game on the Google Sheets API, '
-                'a Django library with authentication and reviews, and the convolutional network above.'),
-               ('Continuous self-directed study in AI, software architecture and regulation',
-                '2018 – present',
-                '',
-                ''),
-               ('University studies in Philosophy and in Physics', 'University of Seville', '', '')]}
+                'Five portfolio projects at <a href="https://github.com/cefeidas">github.com/cefeidas</a>: '
+                'an accessible website (HTML, CSS), a JavaScript game, a Python game on the Google Sheets '
+                'API, a Django library with authentication and reviews, and a convolutional network that '
+                'classifies images (Mildew).'),
+               ('Studies in Philosophy and in Physics (several years)', 'University of Seville', '', '')]}
 
 def to_pdf(html_path: Path, pdf_path: Path):
     import os
