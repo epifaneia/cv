@@ -162,9 +162,8 @@ ES = {'lang': 'es',
  't_skills': 'Competencias',
  'skills': [('IA aplicada',
              'Pipelines de LLM con salida estructurada, enum dinámico y verificación determinista. Modelos '
-             'en local (Ollama, Qwen 7B/14B) y en nube (Gemini) bajo el mismo contrato. Recuperación BM25. '
-             'Calibración y medida contra ground truth. Agentes con CrewAI (Flows y Crews con RAG) cuando el '
-             'problema lo pide.'),
+             'en local (Ollama, Qwen 7B/14B) y en nube (Gemini) bajo el mismo contrato. '
+             'Calibración y medida contra ground truth. CrewAI medido y descartado (6/10 frente a 9/10 con llamadas propias): <a href="https://github.com/epifaneia/asimetrica">epifaneia/asimetrica</a>.'),
             ('Machine learning y datos',
              'Redes convolucionales con TensorFlow/Keras: preparación y balanceo de datos, partición '
              'train/validación/test, evaluación. Pandas, NumPy, Matplotlib, Jupyter, Streamlit. PDF '
@@ -271,8 +270,7 @@ EN = {'lang': 'en',
  'skills': [('Applied AI',
              'LLM pipelines with structured output, dynamic enums and deterministic verification. Local '
              'models (Ollama, Qwen 7B/14B) and cloud (Gemini) under one contract. BM25 retrieval. '
-             'Calibration and measurement against ground truth. Agents with CrewAI (Flows and Crews with '
-             'RAG) when the problem calls for them.'),
+             'Calibration and measurement against ground truth. CrewAI vs my own calls: 6/10 with 96 calls, 9/10 with 10; dropped: <a href="https://github.com/epifaneia/asimetrica">epifaneia/asimetrica</a>.'),
             ('Machine learning and data',
              'Convolutional networks with TensorFlow/Keras: data preparation and class balancing, '
              'train/validation/test split, evaluation. Pandas, NumPy, Matplotlib, Jupyter, Streamlit. PDF '
