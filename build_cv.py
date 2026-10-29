@@ -185,7 +185,7 @@ ES = {'lang': 'es',
             'código público. Trabajo con una idea simple: cualquier aplicación con IA tiene cinco pasos y '
             'solo uno invoca un modelo; los otros cuatro son código. Cuando están bien hechos, lo que queda '
             'en medio cabe en una llamada, y el resultado es más barato, más potente y auditable. He '
-            'trabajado con empresas de automoción y alimentación, donde manda la regulación y un error '
+            'trabajado con un proveedor de automoción Tier 1, donde manda la regulación y un error '
             'silencioso sale caro.',
  't_projects': 'Proyectos públicos',
  'projects': [('CTSM',
@@ -223,8 +223,8 @@ ES = {'lang': 'es',
                  'marzo 2026 – actualidad',
                  'Epifaneia · Sevilla, remoto',
                  'Diseño e implantación de pipelines de IA con cadena de custodia para industria y procesos '
-                 'regulados: los proyectos de arriba, una app móvil de conversación por voz con modelos por '
-                 'etapa y pruebas de concepto para el sector de la alimentación.'),
+                 'regulados: los proyectos de arriba y una app móvil de conversación por voz con modelos por '
+                 'etapa.'),
                 ('Encargos de conversión a ReqIF',
                  'junio – septiembre 2026',
                  'Ingeniero senior · proveedor de automoción Tier 1 · remoto',
@@ -234,10 +234,10 @@ ES = {'lang': 'es',
                  '2024 – actualidad',
                  'Foundever · campaña de Airbnb · Sevilla',
                  'Atención al cliente avanzada en inglés, en paralelo a Epifaneia.'),
-                ('Programador de automatizaciones y teleoperador',
+                ('Programador de automatizaciones y teleoperador de ventas',
                  'marzo – diciembre 2024',
                  'Konecta · Sevilla',
-                 'Automatización de los informes del equipo con Python (Pandas, openpyxl) sobre '
+                 'Empecé como teleoperador y entré en el proyecto de automatización del sistema de KPIs: los informes del equipo con Python (Pandas, openpyxl) sobre '
                  'exportaciones de Metabase, en iteraciones revisadas por el equipo de análisis de datos.'),
                 ('Análisis de riesgo, calidad y formación',
                  '2017 – 2023',
@@ -292,8 +292,8 @@ EN = {'lang': 'en',
             'pipelines that run on real data, with measured numbers, written limitations and public code. I '
             'work from one simple idea: every AI application has five steps and only one invokes a model; '
             'the other four are code. When those are done properly, what is left in the middle fits in one '
-            'call, and the result is cheaper, stronger and auditable. I have worked with automotive and food '
-            'companies where regulation rules and a silent error is expensive.',
+            'call, and the result is cheaper, stronger and auditable. I have worked with a Tier 1 '
+            'automotive supplier, where regulation rules and a silent error is expensive.',
  't_projects': 'Public projects',
  'projects': [('CTSM',
                'epifaneia/ctsm',
@@ -328,8 +328,7 @@ EN = {'lang': 'en',
                  'March 2026 – present',
                  'Epifaneia · Seville, remote',
                  'Design and delivery of AI pipelines with a chain of custody for industry and regulated '
-                 'processes: the projects above, a mobile voice-conversation app with a model per stage and '
-                 'proofs of concept for the food industry.'),
+                 'processes: the projects above and a mobile voice-conversation app with a model per stage.'),
                 ('Recurring ReqIF conversion engagements',
                  'June – September 2026',
                  'Senior engineer at a Tier 1 automotive supplier · remote',
@@ -339,10 +338,10 @@ EN = {'lang': 'en',
                  '2024 – present',
                  'Foundever · Airbnb programme · Seville',
                  'Advanced customer support in English, in parallel with Epifaneia.'),
-                ('Automation programmer and sales agent',
+                ('Automation programmer and telesales agent',
                  'March – December 2024',
                  'Konecta · Seville',
-                 'Automated the team’s reporting with Python (Pandas, openpyxl) over Metabase exports, in '
+                 'Started as a telesales agent and joined the project automating the KPI system: the team’s reporting with Python (Pandas, openpyxl) over Metabase exports, in '
                  'iterations reviewed by the data analysis team.'),
                 ('Risk analysis, quality and training',
                  '2017 – 2023',
