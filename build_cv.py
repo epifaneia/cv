@@ -203,7 +203,7 @@ ES = {'lang': 'es',
                'De un PDF de especificación a un ReqIF que Polarion importa a la primera: identificadores '
                'verbatim, jerarquía del documento, orden de página. Política determinista de identificadores '
                'y reconciliación de tipo contra la fuente. <span class="n">Sin la política, el modelo '
-               'inventaba 167 de 170 identificadores · 1/20 del coste de visión enrutando solo tablas y '
+               'inventaba 167 de 170 identificadores · ~1/15 del coste de visión, conservando el 98,4 % de los ítems enrutando solo tablas y '
                'figuras · 12/12 documentos reales validados estructuralmente.</span>'),
               ('toolkit',
                'epifaneia/toolkit',
@@ -309,7 +309,7 @@ EN = {'lang': 'en',
                'From a specification PDF to a ReqIF that Polarion imports on the first attempt: verbatim '
                'identifiers, document hierarchy, page order. Deterministic identifier policy and type '
                'reconciliation against the source. <span class="n">Without the policy, the model invented '
-               '167 of 170 identifiers · 1/20 of the vision cost by routing only tables and figures · 12/12 '
+               '167 of 170 identifiers · ~1/15 of the vision cost, keeping 98.4% of items by routing only tables and figures · 12/12 '
                'real documents structurally validated.</span>'),
               ('toolkit',
                'epifaneia/toolkit',
