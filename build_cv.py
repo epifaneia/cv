@@ -67,7 +67,7 @@ a { color: #1e3a6e; text-decoration: none; }
 .skill span { color: rgba(255,255,255,.8); }
 .interests { font-size: 8.3pt; color: rgba(255,255,255,.85); margin: 0; }
 /* ---- main ---- */
-.main { grid-column: 1; grid-row: 1; background: #fff; padding: 6mm 7.5mm 3mm 9mm; }
+.main { grid-column: 1; grid-row: 1; background: #fff; padding: 5mm 7.5mm 2mm 9mm; }
 .section { margin-bottom: 2.8mm; }
 .section-title { display: flex; align-items: center; gap: 2.4mm; text-transform: uppercase; font-size: 9.8pt;
                  font-weight: 500; letter-spacing: .04em; color: #3f6fb5; margin: 0 0 1.8mm; }
@@ -86,6 +86,7 @@ p { margin: 0 0 1.6mm; }
 .company { color: #97AAC3; margin-bottom: .8mm; font-size: 8.5pt; }
 .details { color: #3F4650; }
 .n { color: #2f7a4c; font-weight: 600; }
+.mas { color: #5B6470; font-style: italic; }
 .edu-line { display: flex; justify-content: space-between; gap: 4mm; margin-bottom: 1.2mm; }
 .edu-line b { font-weight: 500; color: #2b323d; }
 """
@@ -135,7 +136,7 @@ def main(d):
     return f"""
 <main class="main">
   {sec(d['t_profile'], 'user', f'<p class="hilo">{d["hilo"]}</p><p>{d["summary"]}</p>')}
-  {sec(d['t_projects'], 'folder', projects)}
+  {sec(d['t_projects'], 'folder', projects + (f'<div class="item mas">{d["mas"]}</div>' if d.get("mas") else ''))}
   {sec(d['t_experience'], 'brief', exp)}
   {sec(d['t_education'], 'book', edu)}
 </main>"""
@@ -165,7 +166,7 @@ ES = {'lang': 'es',
  'skills': [('IA aplicada',
              'Pipelines de LLM con salida estructurada, enum dinámico y verificación determinista. Modelos '
              'en local (Ollama, Qwen 7B/14B) y en nube (Gemini) bajo el mismo contrato. '
-             'CrewAI medido y descartado (6/10 frente a 9/10 con llamadas propias): <a href="https://github.com/epifaneia/asimetrica">epifaneia/asimetrica</a>.'),
+             'Calibración y medida contra ground truth.'),
             ('Machine learning y datos',
              'Redes convolucionales con TensorFlow/Keras: preparación y balanceo de datos, partición '
              'train/validación/test, evaluación. Pandas, NumPy, Matplotlib, Jupyter, Streamlit. PDF '
@@ -183,9 +184,9 @@ ES = {'lang': 'es',
  'hilo': 'La IA tiene riesgos. El código los acota. La norma responde de lo que queda.',
  'summary': 'Programador desde 2023: Code Institute, Python en empresa en 2024 y, desde marzo de 2026, '
             'pipelines de IA que corren sobre datos reales, con cifras medidas, limitaciones escritas y '
-            'código público. Trabajo con una idea simple: cualquier aplicación con IA tiene cinco pasos y '
-            'solo uno invoca un modelo; los otros cuatro son código. Cuando están bien hechos, lo que queda '
-            'en medio cabe en una llamada, y el resultado es más barato, más potente y auditable. He '
+            'código público. Trabajo con una fórmula de cinco pasos en la que solo el cuarto es sitio para un '
+            'modelo; sirve, sobre todo, para saber si hace falta IA: si ese paso lo resuelve una regla, no hay '
+            'modelo, y el resultado es más barato y auditable. He '
             'trabajado con un proveedor de automoción Tier 1, donde manda la regulación y un error '
             'silencioso sale caro.',
  't_projects': 'Proyectos públicos',
@@ -196,41 +197,46 @@ ES = {'lang': 'es',
                'manuales del proveedor y devuelve el mismo fichero con la evidencia y su página exacta. El '
                'modelo solo puede citar fragmentos de una lista cerrada; el código verifica cada cita contra '
                'la fuente y deriva la página del offset. <span class="n">9/9 contra ground truth con un '
-               'modelo local de 14B · cero falsos «cumple» · diff de ida y vuelta probado contra 5 '
+               'modelo local de 14B · cero falsos «cumple» · diff de ida y vuelta probado contra 10 '
                'sabotajes.</span>'),
-              ('reqif-extractor',
-               'epifaneia/reqif-extractor',
+              ('ordena',
+               'epifaneia/ordena',
                '2026',
-               'De un PDF de especificación a un ReqIF que Polarion importa a la primera: identificadores '
-               'verbatim, jerarquía del documento, orden de página. Política determinista de identificadores '
-               'y reconciliación de tipo contra la fuente. <span class="n">Sin la política, el modelo '
-               'inventaba 167 de 170 identificadores · ~1/15 del coste de visión, conservando el 98,4 % de los ítems enrutando solo tablas y '
-               'figuras · 12/12 documentos reales validados estructuralmente.</span>'),
-              ('toolkit',
-               'epifaneia/toolkit',
+               'Los pedidos como llegan de verdad (un correo a medias, una nota de voz de WhatsApp) entran en '
+               'Business Central como pedido de venta sin registrar. Un modelo en local solo interpreta el '
+               'mensaje; cliente, artículos y fechas los resuelve el código contra los maestros del ERP, lo '
+               'dudoso queda marcado y una persona valida. <span class="n">De punta a punta contra Business '
+               'Central (datos de demostración CRONUS) · sin duplicados al reprocesar.</span>'),
+              ('Neuralib',
+               'epifaneia/neuralib',
+               '2023 · 2026',
+               'Mi biblioteca Django del bootcamp, rescatada: 300 libros de dominio público con búsqueda por '
+               'significado (pgvector) y un bibliotecario que solo recomienda del catálogo, citando la frase '
+               'que lo respalda; el código comprueba que la cita existe. En línea en Render. <span class="n">'
+               'Libro esperado entre los 5 primeros en 34 de 34 preguntas · 81 tests en CI.</span>'),
+              ('Asimétrica',
+               'epifaneia/asimetrica',
                '2026',
-               'La parte reutilizable de cada pipeline: una herramienta por paso de diseño, guardarraíles '
-               'genéricos y tres cables de integración con los sistemas de la empresa (identidad, registro '
-               'de eventos, firma), con pruebas e integración documentada para Entra ID, SIEM y PKI.'),
-              ('feasibility-study',
-               'epifaneia/feasibility-study',
-               '2026',
-               'De un formulario de reunión a un estudio de viabilidad de IA en PDF: una investigación '
-               'autónoma por cientos de páginas, convertida por código en un informe con nuestra narrativa y '
-               'nuestro orden, con fuentes citadas. Formulario, servidor FastAPI, panel del consultor y '
-               'revisión humana antes de enviar.')],
+               'App Android para pensar en voz alta paseando: hablas por un auricular con cable, un modelo '
+               'fuerte se toma su tiempo y contesta al oído; el móvil no sale del bolsillo. Un modelo por '
+               'etapa, tu obra como canon y nada se pierde si falla la red. <span class="n">Frente a CrewAI '
+               'en la misma tarea: 9/10 con 10 llamadas al modelo, contra 6/10 con 96.</span>')],
+ 'mas': 'Once repositorios públicos en <a href="https://github.com/epifaneia">github.com/epifaneia</a>; '
+        'también reqif-extractor, toolkit, Mildew y NOGUM.',
  't_experience': 'Experiencia',
  'experience': [('Diseñador de soluciones de IA',
                  'marzo 2026 – actualidad',
                  'Epifaneia · Sevilla, remoto',
                  'Diseño e implantación de pipelines de IA con cadena de custodia para industria y procesos '
-                 'regulados: los proyectos de arriba y una app móvil de conversación por voz con modelos por '
-                 'etapa.'),
+                 'regulados.'),
                 ('Encargos de conversión a ReqIF',
                  'junio – septiembre 2026',
-                 'Ingeniero senior · proveedor de automoción Tier 1 · remoto',
+                 'Para un ingeniero de un proveedor de automoción Tier 1 · remoto',
                  'Lotes recurrentes de especificaciones de cliente a ReqIF importable en Polarion, con '
-                 'reqif-extractor, procesadas en la nube con autorización del cliente; cada entrega, revisada por él.'),
+                 '<a href="https://github.com/epifaneia/reqif-extractor">reqif-extractor</a>, procesadas en la '
+                 'nube con autorización del cliente y revisadas por él. <span class="n">Sin la política de '
+                 'identificadores, el modelo inventaba 167 de 170 · ~1/15 del coste de visión, conservando el '
+                 '98,4 % de los ítems · 12/12 documentos validados.</span>'),
                 ('Gestor bilingüe',
                  '2024 – actualidad',
                  'Foundever · campaña de Airbnb · Sevilla',
@@ -239,21 +245,18 @@ ES = {'lang': 'es',
                  'marzo – diciembre 2024',
                  'Konecta · Sevilla',
                  'Empecé como teleoperador y entré en el proyecto de automatización del sistema de KPIs: los informes del equipo con Python (Pandas, openpyxl) sobre '
-                 'exportaciones de Metabase, en iteraciones revisadas por el equipo de análisis de datos.'),
+                 'exportaciones de Metabase.'),
                 ('Análisis de riesgo, calidad y formación',
                  '2017 – 2023',
                  'TaskUs, Prepaid Financial Services, Media Interactiva, Field Management · Irlanda y España',
                  'Análisis de riesgo financiero, auditoría de calidad y formación de agentes en TaskUs, con '
-                 'un programa de entrenamiento de modelos de IA; QA de software en Media Interactiva. Seis '
-                 'años trabajando en inglés.')],
+                 'un programa de entrenamiento de modelos de IA; QA de software en Media Interactiva.')],
  't_education': 'Formación',
  'education': [('Diploma in Full Stack Software Development',
                 'enero 2023 – abril 2024',
                 'Code Institute · crédito universitario (University of the West of Scotland)',
-                'Cinco proyectos de portfolio: web accesible (HTML, CSS), juego en JavaScript, juego en '
-                'Python sobre la API de Google Sheets, biblioteca en Django con autenticación y reseñas '
-                '(reescrita en 2026: <a href="https://github.com/epifaneia/neuralib">epifaneia/neuralib</a>) '
-                'y una red convolucional que clasifica imágenes (Mildew).'),
+                'Cinco proyectos de portfolio, entre ellos una biblioteca en Django (Neuralib) y una red '
+                'convolucional que clasifica imágenes (Mildew).'),
                ('Estudios de Filosofía y de Física (varios cursos)', 'Universidad de Sevilla', '', '')]}
 
 EN = {'lang': 'en',
@@ -273,7 +276,7 @@ EN = {'lang': 'en',
  'skills': [('Applied AI',
              'LLM pipelines with structured output, dynamic enums and deterministic verification. Local '
              'models (Ollama, Qwen 7B/14B) and cloud (Gemini) under one contract. BM25 retrieval. '
-             'Calibration and measurement against ground truth. CrewAI vs my own calls: 6/10 with 96 calls, 9/10 with 10; dropped: <a href="https://github.com/epifaneia/asimetrica">epifaneia/asimetrica</a>.'),
+             'Calibration and measurement against ground truth.'),
             ('Machine learning and data',
              'Convolutional networks with TensorFlow/Keras: data preparation and class balancing, '
              'train/validation/test split, evaluation. Pandas, NumPy, Matplotlib, Jupyter, Streamlit. PDF '
@@ -291,9 +294,9 @@ EN = {'lang': 'en',
  'hilo': 'AI carries risk. Code bounds it. The standard answers for what remains.',
  'summary': 'Programmer since 2023: Code Institute, Python at work in 2024 and, since March 2026, AI '
             'pipelines that run on real data, with measured numbers, written limitations and public code. I '
-            'work from one simple idea: every AI application has five steps and only one invokes a model; '
-            'the other four are code. When those are done properly, what is left in the middle fits in one '
-            'call, and the result is cheaper, stronger and auditable. I have worked with a Tier 1 '
+            'work from one formula: every process has five steps and only the fourth is a place for a model; '
+            'the other four are code. Above all, it tells whether AI is needed at all: if a rule can do that '
+            'step, there is no model, and the result is cheaper and auditable. I have worked with a Tier 1 '
             'automotive supplier, where regulation rules and a silent error is expensive.',
  't_projects': 'Public projects',
  'projects': [('CTSM',
@@ -303,38 +306,45 @@ EN = {'lang': 'en',
                'supplier’s manuals and returns the same file with the evidence and its exact page. The model '
                'may only cite fragments from a closed list; code verifies every quote against the source and '
                'derives the page from the offset. <span class="n">9/9 against ground truth with a local 14B '
-               'model · zero false "compliant" · round-trip diff tested against 5 sabotages.</span>'),
-              ('reqif-extractor',
-               'epifaneia/reqif-extractor',
+               'model · zero false "compliant" · round-trip diff tested against 10 sabotages.</span>'),
+              ('ordena',
+               'epifaneia/ordena',
                '2026',
-               'From a specification PDF to a ReqIF that Polarion imports on the first attempt: verbatim '
-               'identifiers, document hierarchy, page order. Deterministic identifier policy and type '
-               'reconciliation against the source. <span class="n">Without the policy, the model invented '
-               '167 of 170 identifiers · ~1/15 of the vision cost, keeping 98.4% of items by routing only tables and figures · 12/12 '
-               'real documents structurally validated.</span>'),
-              ('toolkit',
-               'epifaneia/toolkit',
+               'Orders as they really arrive (a half-written email, a WhatsApp voice note) go into Business '
+               'Central as unposted sales orders. A local model only interprets the message; customer, items '
+               'and dates are resolved by code against the ERP master data, doubts are flagged and a person '
+               'validates. <span class="n">End to end against Business Central (CRONUS demo data) · no '
+               'duplicates on reprocessing.</span>'),
+              ('Neuralib',
+               'epifaneia/neuralib',
+               '2023 · 2026',
+               'My bootcamp Django library, rescued: 300 public-domain books with search by meaning '
+               '(pgvector) and a librarian that only recommends from the catalogue, quoting the line that '
+               'backs it; code checks the quote exists. Live on Render. <span class="n">Expected book in the '
+               'top 5 for 34 of 34 questions · 81 tests in CI.</span>'),
+              ('Asimétrica',
+               'epifaneia/asimetrica',
                '2026',
-               'The reusable part of every pipeline: one tool per design step, generic guardrails and three '
-               'integration wires to the company’s systems (identity, event ledger, sign-off), with tests '
-               'and a documented integration for Entra ID, SIEM and PKI.'),
-              ('feasibility-study',
-               'epifaneia/feasibility-study',
-               '2026',
-               'From a meeting form to an AI feasibility study in PDF: an autonomous research run across '
-               'hundreds of pages, turned by code into a report with our narrative and our order, with cited '
-               'sources. Form, FastAPI server, consultant panel and human review before sending.')],
+               'An Android app for thinking out loud on a walk: you talk through a wired headset, a strong '
+               'model takes its time and answers in your ear; the phone stays in your pocket. One model per '
+               'stage, your own work as canon, nothing lost when the network fails. <span class="n">Against '
+               'CrewAI on the same task: 9/10 with 10 model calls, versus 6/10 with 96.</span>')],
+ 'mas': 'Eleven public repositories at <a href="https://github.com/epifaneia">github.com/epifaneia</a>: '
+        'besides these, reqif-extractor, toolkit, feasibility-study, askhub, Mildew, NOGUM and this CV.',
  't_experience': 'Experience',
  'experience': [('AI Solutions Designer',
                  'March 2026 – present',
                  'Epifaneia · Seville, remote',
                  'Design and delivery of AI pipelines with a chain of custody for industry and regulated '
-                 'processes: the projects above and a mobile voice-conversation app with a model per stage.'),
+                 'processes: the projects above.'),
                 ('Recurring ReqIF conversion engagements',
                  'June – September 2026',
-                 'Senior engineer at a Tier 1 automotive supplier · remote',
+                 'For an engineer at a Tier 1 automotive supplier · remote',
                  'Batches of customer specifications converted into Polarion-ready ReqIF with '
-                 'reqif-extractor, processed in the cloud with the client’s authorisation; every delivery reviewed by him.'),
+                 '<a href="https://github.com/epifaneia/reqif-extractor">reqif-extractor</a>, processed in the '
+                 'cloud with the client’s authorisation and reviewed by him. <span class="n">Without the '
+                 'identifier policy, the model invented 167 of 170 · ~1/15 of the vision cost, keeping 98.4% of '
+                 'items · 12/12 documents validated.</span>'),
                 ('Bilingual account specialist',
                  '2024 – present',
                  'Foundever · Airbnb programme · Seville',
@@ -342,23 +352,20 @@ EN = {'lang': 'en',
                 ('Automation programmer and telesales agent',
                  'March – December 2024',
                  'Konecta · Seville',
-                 'Started as a telesales agent and joined the project automating the KPI system: the team’s reporting with Python (Pandas, openpyxl) over Metabase exports, in '
-                 'iterations reviewed by the data analysis team.'),
+                 'Started as a telesales agent and joined the project automating the KPI system: the team’s reporting with Python (Pandas, openpyxl) over Metabase exports.'),
                 ('Risk analysis, quality and training',
                  '2017 – 2023',
                  'TaskUs, Prepaid Financial Services, Media Interactiva, Field Management · Ireland and '
                  'Spain',
                  'Financial risk analysis, quality auditing and agent training at TaskUs, including an AI '
-                 'model training programme; software QA at Media Interactiva. Six years working in '
-                 'English.')],
+                 'model training programme; software QA at Media Interactiva.')],
  't_education': 'Education',
  'education': [('Diploma in Full Stack Software Development',
                 'January 2023 – April 2024',
                 'Code Institute · university credit-rated (University of the West of Scotland)',
                 'Five portfolio projects: an accessible website (HTML, CSS), a JavaScript game, a Python '
-                'game on the Google Sheets API, a Django library with authentication and reviews (rebuilt in '
-                '2026: <a href="https://github.com/epifaneia/neuralib">epifaneia/neuralib</a>) and a '
-                'convolutional network that classifies images (Mildew).'),
+                'game on the Google Sheets API, a Django library with authentication and reviews (Neuralib) '
+                'and a convolutional network that classifies images (Mildew).'),
                ('Studies in Philosophy and in Physics (several years)', 'University of Seville', '', '')]}
 
 def to_pdf(html_path: Path, pdf_path: Path):
