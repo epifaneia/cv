@@ -25,6 +25,7 @@ I = {
  "globe": '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
  "github": '<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>',
  "linkedin": '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>',
+ "youtube": '<rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9"/>',
  "zap": '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>',
  "user": '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
  "folder": '<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>',
@@ -155,22 +156,23 @@ ES = {'lang': 'es',
              ('mail', 'danielmartin@epifaneia.dev'),
              ('globe', '<a href="https://epifaneia.dev">epifaneia.dev</a>'),
              ('github', '<a href="https://github.com/epifaneia">github.com/epifaneia</a>'),
-             ('linkedin', '<a href="https://www.linkedin.com/in/epifaneia/">linkedin.com/in/epifaneia</a>')],
+             ('linkedin', '<a href="https://www.linkedin.com/in/epifaneia/">linkedin.com/in/epifaneia</a>'),
+             ('youtube', '<a href="https://www.youtube.com/@epifaneiadev">youtube.com/@epifaneiadev</a>')],
  'avail': 'Disponibilidad inmediata',
  't_langs': 'Idiomas',
- 'langs': [('Español', 'nativo'), ('Inglés', 'C1 · seis años trabajando en inglés')],
+ 'langs': [('Español', 'nativo'), ('Inglés', 'C1 · seis años de trabajo')],
  't_skills': 'Competencias',
  'skills': [('IA aplicada',
              'Pipelines de LLM con salida estructurada, enum dinámico y verificación determinista. Modelos '
              'en local (Ollama, Qwen 7B/14B) y en nube (Gemini) bajo el mismo contrato. '
-             'Calibración y medida contra ground truth. CrewAI medido y descartado (6/10 frente a 9/10 con llamadas propias): <a href="https://github.com/epifaneia/asimetrica">epifaneia/asimetrica</a>.'),
+             'CrewAI medido y descartado (6/10 frente a 9/10 con llamadas propias): <a href="https://github.com/epifaneia/asimetrica">epifaneia/asimetrica</a>.'),
             ('Machine learning y datos',
              'Redes convolucionales con TensorFlow/Keras: preparación y balanceo de datos, partición '
              'train/validación/test, evaluación. Pandas, NumPy, Matplotlib, Jupyter, Streamlit. PDF '
              '(PyMuPDF, Docling, gmft), XML y ReqIF (lxml), SQLite.'),
             ('Código',
              'Python (FastAPI, Django, lxml), JavaScript y TypeScript (React Native, Expo), HTML y CSS. Git, '
-             'Docker, Heroku, tests y cobertura. Desarrollo asistido por IA con revisión, verificación y '
+             'CI, tests y cobertura. Desarrollo asistido por IA con revisión, verificación y '
              'guardarraíles propios.'),
             ('Regulación',
              'EU AI Act, ISO/IEC 42001, ISO/IEC 27001, RGPD, TISAX. Contexto ISO 26262 e ISO/SAE 21434. '
@@ -262,7 +264,8 @@ EN = {'lang': 'en',
              ('mail', 'danielmartin@epifaneia.dev'),
              ('globe', '<a href="https://epifaneia.dev">epifaneia.dev</a>'),
              ('github', '<a href="https://github.com/epifaneia">github.com/epifaneia</a>'),
-             ('linkedin', '<a href="https://www.linkedin.com/in/epifaneia/">linkedin.com/in/epifaneia</a>')],
+             ('linkedin', '<a href="https://www.linkedin.com/in/epifaneia/">linkedin.com/in/epifaneia</a>'),
+             ('youtube', '<a href="https://www.youtube.com/@epifaneiadev">youtube.com/@epifaneiadev</a>')],
  'avail': 'Available immediately',
  't_langs': 'Languages',
  'langs': [('Spanish', 'native'), ('English', 'C1 · six years working in English')],
@@ -277,7 +280,7 @@ EN = {'lang': 'en',
              '(PyMuPDF, Docling, gmft), XML and ReqIF (lxml), SQLite.'),
             ('Code',
              'Python (FastAPI, Django, lxml), JavaScript and TypeScript (React Native, Expo), HTML and CSS. '
-             'Git, Docker, Heroku, tests and coverage. AI-assisted development with my own review, '
+             'Git, CI, tests and coverage. AI-assisted development with my own review, '
              'verification and guardrails.'),
             ('Regulation',
              'EU AI Act, ISO/IEC 42001, ISO/IEC 27001, GDPR, TISAX. ISO 26262 and ISO/SAE 21434 context. '
