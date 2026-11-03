@@ -182,7 +182,7 @@ ES = {'lang': 'es',
  'interests': 'Patinaje · Filosofía · Juegos de rol',
  't_profile': 'Perfil profesional',
  'hilo': 'La IA tiene riesgos. El código los acota. La norma responde de lo que queda.',
- 'summary': 'Programador desde 2023: Code Institute, Python en empresa en 2024 y, desde marzo de 2026, '
+ 'summary': 'Programador desde 2023 (Code Institute) y con Python en empresa desde 2024. Construyo '
             'pipelines de IA que corren sobre datos reales, con cifras medidas, limitaciones escritas y '
             'código público. Trabajo con una fórmula de cinco pasos en la que solo el cuarto es sitio para un '
             'modelo; sirve, sobre todo, para saber si hace falta IA: si ese paso lo resuelve una regla, no hay '
@@ -292,7 +292,7 @@ EN = {'lang': 'en',
  'interests': 'Skating · Philosophy · Role-playing',
  't_profile': 'Profile',
  'hilo': 'AI carries risk. Code bounds it. The standard answers for what remains.',
- 'summary': 'Programmer since 2023: Code Institute, Python at work in 2024 and, since March 2026, AI '
+ 'summary': 'Programmer since 2023 (Code Institute), with Python at work since 2024. I build AI '
             'pipelines that run on real data, with measured numbers, written limitations and public code. I '
             'work from one formula: every process has five steps and only the fourth is a place for a model; '
             'the other four are code. Above all, it tells whether AI is needed at all: if a rule can do that '
