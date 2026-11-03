@@ -210,10 +210,10 @@ ES = {'lang': 'es',
               ('Neuralib',
                'epifaneia/neuralib',
                '2023 · 2026',
-               'Mi biblioteca Django del bootcamp, rescatada: 300 libros de dominio público con búsqueda por '
-               'significado (pgvector) y un bibliotecario que solo recomienda del catálogo, citando la frase '
+               'Mi biblioteca Django del bootcamp, rescatada: 300 libros de dominio público y un bibliotecario '
+               'que lee el catálogo entero en una llamada y solo recomienda de él, citando la frase del resumen '
                'que lo respalda; el código comprueba que la cita existe. En línea en Render. <span class="n">'
-               'Libro esperado entre los 5 primeros en 34 de 34 preguntas · 81 tests en CI.</span>'),
+               'Libro esperado en 48 de 50 preguntas · 72 tests en CI.</span>'),
               ('Asimétrica',
                'epifaneia/asimetrica',
                '2026',
@@ -318,10 +318,10 @@ EN = {'lang': 'en',
               ('Neuralib',
                'epifaneia/neuralib',
                '2023 · 2026',
-               'My bootcamp Django library, rescued: 300 public-domain books with search by meaning '
-               '(pgvector) and a librarian that only recommends from the catalogue, quoting the line that '
-               'backs it; code checks the quote exists. Live on Render. <span class="n">Expected book in the '
-               'top 5 for 34 of 34 questions · 81 tests in CI.</span>'),
+               'My bootcamp Django library, rescued: 300 public-domain books and a librarian that reads the '
+               'whole catalogue in one call and only recommends from it, quoting the line of the summary that '
+               'backs it; code checks the quote exists. Live on Render. <span class="n">Expected book in 48 of '
+               '50 questions · 72 tests in CI.</span>'),
               ('Asimétrica',
                'epifaneia/asimetrica',
                '2026',
